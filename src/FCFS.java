@@ -41,7 +41,7 @@ public class FCFS {
 
     // Driver
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job.txt");
+        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job2.txt");
 
         Scanner scan = new Scanner(file);
         Queue<Process> processes = new LinkedList();

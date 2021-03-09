@@ -47,12 +47,12 @@ public class RR2 {
         }
 
         System.out.println(totalTurnaround + " " + size);
-        System.out.println("Average turn around time for FCFS = " + (float)totalTurnaround / (float)size);
+        System.out.println("Average turn around time for RR-2 = " + (float)totalTurnaround / (float)size);
     }
 
     // Driver
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job.txt");
+        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job2.txt");
 
         Scanner scan = new Scanner(file);
         ArrayList<Process> processes = new ArrayList();

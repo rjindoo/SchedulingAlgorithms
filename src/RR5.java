@@ -1,8 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class RR2 {
+public class RR5 {
     private static class Process {
         int pid; // process id
         int bt; // burst time
@@ -13,7 +14,7 @@ public class RR2 {
         }
 
         public void decrementBt() {
-            this.bt -= 2;
+            this.bt -= 5;
         }
     }
 
@@ -24,28 +25,30 @@ public class RR2 {
 
         System.out.println("Processes " + " Burst time " + " Remaining process time");
         int pointer = 0;
+
+        // Loop to process in bursts of 5ms, if (process.bt < 5), line 34 handles
         while(proc.size() > 0) {
             Process currentProcess = proc.get(pointer%proc.size());
             currentProcess.decrementBt();
             if(currentProcess.bt <= 0) {
-                timeTracker += (2+currentProcess.bt);
+                timeTracker += (5+currentProcess.bt);
                 totalTurnaround += timeTracker;
                 System.out.println(" " + currentProcess.pid + " FINISHED AT " + timeTracker + "ms");
                 proc.remove(pointer%proc.size());
             }
             else {
-                timeTracker += 2;
-                System.out.println(" " + currentProcess.pid + "\t\t\t" + "2ms" + "\t\t\t" + currentProcess.bt + "ms");
+                timeTracker += 5;
+                System.out.println(" " + currentProcess.pid + "\t\t\t" + "5ms" + "\t\t\t" + currentProcess.bt + "ms");
                 ++pointer;
             }
         }
 
-        System.out.println("Average turn around time for RR-2 = " + (float)totalTurnaround / (float)size);
+        System.out.println("Average turn around time for RR-5 = " + (float)totalTurnaround / (float)size);
     }
 
     // Driver
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job2.txt");
+        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job.txt");
 
         Scanner scan = new Scanner(file);
         ArrayList<Process> processes = new ArrayList();
@@ -62,5 +65,3 @@ public class RR2 {
         findAvgTime(processes);
     }
 }
-
-

@@ -28,18 +28,21 @@ public class RR5 {
 
         // Loop to process in bursts of 5ms, if (process.bt < 5), line 34 handles
         while(proc.size() > 0) {
-            Process currentProcess = proc.get(pointer%proc.size());
+            Process currentProcess = proc.get(pointer);
             currentProcess.decrementBt();
             if(currentProcess.bt <= 0) {
                 timeTracker += (5+currentProcess.bt);
                 totalTurnaround += timeTracker;
                 System.out.println(" " + currentProcess.pid + " FINISHED AT " + timeTracker + "ms");
-                proc.remove(pointer%proc.size());
+                proc.remove(pointer);
             }
             else {
                 timeTracker += 5;
                 System.out.println(" " + currentProcess.pid + "\t\t\t" + "5ms" + "\t\t\t" + currentProcess.bt + "ms");
                 ++pointer;
+            }
+            if(pointer >= proc.size()) {
+                pointer = 0;
             }
         }
 

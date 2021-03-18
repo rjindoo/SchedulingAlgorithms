@@ -13,7 +13,7 @@ public class FCFS {
         }
     }
 
-    static void findavgTime(Queue<Process> proc) {
+    static void FirstComeFirstServe(Queue<Process> proc) {
         int size = proc.size();
         int turnAroundTimes[] = new int[size];
         int total_tat = 0;
@@ -41,7 +41,7 @@ public class FCFS {
 
     // Driver
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job2.txt");
+        File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job.txt");
 
         Scanner scan = new Scanner(file);
         Queue<Process> processes = new LinkedList();
@@ -54,7 +54,7 @@ public class FCFS {
             }
             catch (NumberFormatException e) {}
         }
-        findavgTime(processes);
+        FirstComeFirstServe(processes);
     }
 }
 

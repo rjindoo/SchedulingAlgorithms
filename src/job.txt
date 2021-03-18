@@ -1,10 +1,10 @@
 Job1
-5
+25
 Job2
-21
+8
 Job3
-15
-Job4
-4
-Job5
 13
+Job4
+30
+Job5
+7

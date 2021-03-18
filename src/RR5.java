@@ -51,6 +51,16 @@ public class RR5 {
 
     // Driver
     public static void main(String[] args) throws FileNotFoundException {
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Overwrite current file? (1 = Yes, 0 = No): ");
+        if(userInput.nextInt() == 1) {
+            System.out.print("\nEnter the number of jobs: ");
+
+            JobWriter jobs = new JobWriter(userInput.nextInt());
+            jobs.createJobs();
+        }
+
         File file = new File("/Users/ryandavidson/IdeaProjects/SchedulingAlgorithms/src/job.txt");
 
         Scanner scan = new Scanner(file);
